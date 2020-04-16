@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'law',
     loadChildren: () => import('./law/law.module').then((m) => m.LawModule),
   },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then((m) => m.ChatModule),
+  },
 ];
 
 @NgModule({
