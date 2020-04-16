@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./terms/terms.module').then((m) => m.TermsModule),
   },
+  {
+    path: 'law',
+    loadChildren: () => import('./law/law.module').then((m) => m.LawModule),
+  },
 ];
 
 @NgModule({
