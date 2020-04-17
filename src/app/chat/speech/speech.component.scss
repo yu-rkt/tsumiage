@@ -1,0 +1,25 @@
+.container {
+  margin: 0 12px;
+  background-color: rgba(green, 0.1);
+}
+
+.message {
+  display: flex;
+  &__icon {
+    background-color: rgba(red, 0.1);
+    margin: 5px;
+    padding: 5px;
+    width: 73px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  img {
+    text-align: center;
+  }
+  &__item {
+    background-color: rgba(blue, 0.1);
+  }
+  &__date {
+    font-size: 12px;
+  }
+}
