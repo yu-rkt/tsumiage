@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat/chat.component';
+import { SpeechComponent } from './speech/speech.component';
 
 
 @NgModule({
-  declarations: [ChatComponent],
+  declarations: [ChatComponent, SpeechComponent],
   imports: [
     CommonModule,
     ChatRoutingModule
