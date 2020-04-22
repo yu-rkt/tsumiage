@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [ChatComponent, SpeechComponent, InputComponent],
@@ -21,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ReactiveFormsModule,
     TextFieldModule,
     MatFormFieldModule,
+    MatInputModule,
   ],
 })
 export class ChatModule {}
