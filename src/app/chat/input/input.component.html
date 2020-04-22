@@ -1,1 +1,8 @@
-<p>input works!</p>
+<form class="chat-form" [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field>
+    <textarea matInput matTextareaAutosize formControlName="text"></textarea>
+  </mat-form-field>
+  <span>
+    <button type="submit">send</button>
+  </span>
+</form>
