@@ -6,12 +6,10 @@ import { ChatComponent } from './chat/chat.component';
 import { SpeechComponent } from './speech/speech.component';
 import { InputComponent } from './input/input.component';
 
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [ChatComponent, SpeechComponent, InputComponent],
-  imports: [
-    CommonModule,
-    ChatRoutingModule
-  ]
+  imports: [CommonModule, ChatRoutingModule, SharedModule],
 })
-export class ChatModule { }
+export class ChatModule {}
