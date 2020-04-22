@@ -1,5 +1,7 @@
 <form class="chat-form" [formGroup]="form" (ngSubmit)="submit()">
-  <textarea autocomplete="off"></textarea>
+  <mat-form-field>
+    <textarea　matTextareaAutosize autocomplete="off"></textarea>
+  </mat-form-field>
   <span>
     <button type="submit">send</button>
   </span>

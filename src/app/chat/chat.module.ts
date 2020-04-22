@@ -7,9 +7,20 @@ import { SpeechComponent } from './speech/speech.component';
 import { InputComponent } from './input/input.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [ChatComponent, SpeechComponent, InputComponent],
-  imports: [CommonModule, ChatRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    ChatRoutingModule,
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TextFieldModule,
+    MatFormFieldModule,
+  ],
 })
 export class ChatModule {}
