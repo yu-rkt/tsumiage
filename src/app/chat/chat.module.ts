@@ -7,7 +7,6 @@ import { SpeechComponent } from './speech/speech.component';
 import { InputComponent } from './input/input.component';
 
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -18,8 +17,6 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
     ChatRoutingModule,
     SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
     TextFieldModule,
     MatFormFieldModule,
     MatInputModule,
