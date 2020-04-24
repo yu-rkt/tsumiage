@@ -123,6 +123,10 @@
               "devServerTarget": "Angular-myApp:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

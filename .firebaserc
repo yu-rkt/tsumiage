@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "tsumiage-e21fe"
+  },
+  "targets": {
+    "tsumiage-e21fe": {
+      "hosting": {
+        "Angular-myApp": [
+          "tsumiage-e21fe"
+        ]
+      }
+    }
   }
 }
