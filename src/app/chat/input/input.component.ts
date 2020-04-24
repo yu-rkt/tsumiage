@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, Validators } from '@angular/forms';
+import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
   selector: 'app-input',
@@ -11,10 +12,12 @@ export class InputComponent implements OnInit {
   form = this.fb.group({
     text: ['', [Validators.required]],
   });
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private chatService: ChatService) {}
 
   ngOnInit(): void {}
   submit() {
-    console.log(this.form.value);
+    this.chatService.postChat({
+      text: this.form.value,
+    });
   }
 }
