@@ -9,14 +9,8 @@ export class ChatService {
   constructor(private db: AngularFirestore) {}
 
   postChat(message: Message) {
-    const roomId = this.db.createId();
-    const messageId = this.db.createId();
-    return this.db
-      .collection('rooms')
-      .doc(`${roomId}`)
-      .collection('messages')
-      .doc(`${messageId}`)
-      .set(message);
+    const id = this.db.createId();
+    return this.db.doc(`messages/${id}`).set(message);
   }
 
   getChat() {}
