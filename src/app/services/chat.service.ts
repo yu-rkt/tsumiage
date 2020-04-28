@@ -10,7 +10,13 @@ export class ChatService {
 
   postChat(message: Message) {
     const id = this.db.createId();
-    return this.db.doc(`messages/${id}`).set(message);
+    const uid = 1234;
+    return this.db
+      .collection('rooms')
+      .doc(`${uid}`)
+      .collection('messages')
+      .doc(`${id}`)
+      .set(message);
   }
 
   getChat() {}
