@@ -12,12 +12,15 @@ export class InputComponent implements OnInit {
   form = this.fb.group({
     text: ['', [Validators.required]],
   });
+  uid = this.chatService.uid;
+
   constructor(private fb: FormBuilder, private chatService: ChatService) {}
 
   ngOnInit(): void {}
   submit() {
     this.chatService.postChat({
       text: this.form.value,
+      uid: this.uid,
     });
   }
 }
