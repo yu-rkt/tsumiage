@@ -6,12 +6,14 @@ import { Message } from '../interfaces/message';
   providedIn: 'root',
 })
 export class ChatService {
+  messageId = this.db.createId();
+  uid = 1234;
   constructor(private db: AngularFirestore) {}
 
   postChat(message: Message) {
-    const messageId = this.db.createId();
-    const uid = 1234;
-    return this.db.doc(`rooms/${uid}/messages/${messageId}`).set(message);
+    return this.db
+      .doc(`rooms/${this.uid}/messages/${this.messageId}`)
+      .set(message);
   }
 
   getChat() {}
