@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Message } from '../interfaces/message';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -16,5 +17,17 @@ export class ChatService {
       .set(message);
   }
 
-  getChat() {}
+  getChat(uid: number) {
+    return this.db
+      .collection<Message>(`rooms/${uid}/messages`, (ref) =>
+        ref.where('uid', '==', uid)
+      )
+      .valueChanges()
+      .pipe(
+        map((messages) => {
+          return messages.map((message) => message.text);
+        })
+      )
+      .subscribe((messages) => console.log(messages));
+  }
 }

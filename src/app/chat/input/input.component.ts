@@ -21,6 +21,7 @@ export class InputComponent implements OnInit {
     this.chatService.postChat({
       text: this.form.value,
       uid: this.uid,
-    });
+    }),
+      this.chatService.getChat(this.uid);
   }
 }
