@@ -20,7 +20,7 @@ export class ChatService {
 
   getAllChat(uid: number): Observable<string[]> {
     return this.db
-      .collection<Message>(`rooms/${uid}/messages`, (ref) =>
+      .collection<Message>(`rooms/${this.uid}/messages`, (ref) =>
         ref.where('uid', '==', uid)
       )
       .valueChanges()

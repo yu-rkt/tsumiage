@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from 'src/app/services/chat.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-chat',
@@ -7,13 +8,11 @@ import { ChatService } from 'src/app/services/chat.service';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-  chats$ = this.chatService.getAllChat(this.chatService.uid);
+  chats$ = this.chatService
+    .getAllChat(this.chatService.uid)
+    .pipe(tap((data) => console.log(data)));
 
-  constructor(private chatService: ChatService) {
-    console.log('chatsの中身は');
-
-    console.log(this.chats$);
-  }
+  constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {}
 }
