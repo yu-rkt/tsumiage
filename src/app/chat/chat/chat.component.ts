@@ -9,7 +9,11 @@ import { ChatService } from 'src/app/services/chat.service';
 export class ChatComponent implements OnInit {
   chats$ = this.chatService.getAllChat(this.chatService.uid);
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService) {
+    console.log('chatsの中身は');
+
+    console.log(this.chats$);
+  }
 
   ngOnInit(): void {}
 }
