@@ -28,6 +28,11 @@ const routes: Routes = [
     loadChildren: () => import('./chat/chat.module').then((m) => m.ChatModule),
   },
   {
+    path: 'mypage',
+    loadChildren: () =>
+      import('./mypage/mypage.module').then((m) => m.MypageModule),
+  },
+  {
     path: 'timeline',
     loadChildren: () =>
       import('./timeline/timeline.module').then((m) => m.TimelineModule),
