@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Message } from '../interfaces/message';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { firestore } from 'firebase';
 
@@ -25,11 +24,6 @@ export class ChatService {
       .collection<Message>(`rooms/${this.uid}/messages`, (ref) =>
         ref.where('uid', '==', uid).orderBy('createdAt', 'desc').limit(7)
       )
-      .valueChanges()
-      .pipe(
-        map((messages) => {
-          return messages.map((message) => [message.text, message.createdAt]);
-        })
-      );
+      .valueChanges();
   }
 }

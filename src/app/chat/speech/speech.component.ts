@@ -8,7 +8,6 @@ import { Message } from 'src/app/interfaces/message';
 })
 export class SpeechComponent implements OnInit {
   @Input() chat: Message;
-  chatText = this.chat.map((obj) => obj.text);
 
   constructor() {}
 
