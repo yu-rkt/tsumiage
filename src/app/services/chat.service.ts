@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Message } from '../interfaces/message';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { firestore } from 'firebase';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ import { Observable } from 'rxjs';
 export class ChatService {
   messageId = this.db.createId();
   uid = 1234;
+  createdAt = firestore.Timestamp.now();
   constructor(private db: AngularFirestore) {}
 
   postChat(message: Message) {
@@ -21,7 +23,7 @@ export class ChatService {
   getAllChat(uid: number): Observable<string[]> {
     return this.db
       .collection<Message>(`rooms/${this.uid}/messages`, (ref) =>
-        ref.where('uid', '==', uid)
+        ref.where('uid', '==', uid).orderBy('createdAt', 'desc').limit(7)
       )
       .valueChanges()
       .pipe(

@@ -13,6 +13,7 @@ export class InputComponent implements OnInit {
     text: ['', [Validators.required]],
   });
   uid = this.chatService.uid;
+  createdAt = this.chatService.createdAt;
 
   constructor(private fb: FormBuilder, private chatService: ChatService) {}
 
@@ -21,6 +22,7 @@ export class InputComponent implements OnInit {
     this.chatService.postChat({
       text: this.form.value,
       uid: this.uid,
+      createdAt: this.createdAt,
     });
   }
 }
