@@ -20,7 +20,7 @@ export class ChatService {
       .set(message);
   }
 
-  getAllChat(uid: number): Observable<string[]> {
+  getAllChat(uid: number): Observable<object[]> {
     return this.db
       .collection<Message>(`rooms/${this.uid}/messages`, (ref) =>
         ref.where('uid', '==', uid).orderBy('createdAt', 'desc').limit(7)
@@ -28,7 +28,7 @@ export class ChatService {
       .valueChanges()
       .pipe(
         map((messages) => {
-          return messages.map((message) => message.text);
+          return messages.map((message) => [message.text, message.createdAt]);
         })
       );
   }
