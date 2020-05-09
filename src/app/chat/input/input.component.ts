@@ -20,7 +20,7 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {}
   submit() {
     this.chatService.postChat({
-      text: this.form.value,
+      text: this.form.value.text,
       uid: this.uid,
       createdAt: this.createdAt,
     });
