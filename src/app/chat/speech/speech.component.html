@@ -5,7 +5,7 @@
     </figure>
     <div class="message__item">
       <p class="message__date">
-        {{ chat.createdAt }}
+        {{ chat.createdAt.toDate() | date: "M/d h:mm a" }}
       </p>
       <p class="message__text">
         {{ chat.text }}
