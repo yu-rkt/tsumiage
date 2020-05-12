@@ -7,7 +7,7 @@ import { Message } from 'src/app/interfaces/message';
   styleUrls: ['./latest-post.component.scss'],
 })
 export class LatestPostComponent implements OnInit {
-  @Input() latestPost: Message;
+  @Input() post: Message;
 
   constructor() {}
 

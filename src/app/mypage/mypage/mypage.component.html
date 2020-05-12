@@ -12,7 +12,11 @@
 </mat-card>
 <mat-tab-group class="tab-group">
   <mat-tab label="最近の投稿">
-    <app-latest-post></app-latest-post>
+    <app-latest-post
+      class="latest-post"
+      [post]="post"
+      *ngFor="let post of posts$ | async"
+    ></app-latest-post>
   </mat-tab>
   <mat-tab label="月別"></mat-tab>
 </mat-tab-group>
