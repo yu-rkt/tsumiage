@@ -1,15 +1,13 @@
 <div class="container">
-  <div class="message">
-    <figure class="message__icon">
-      <img src="" alt="" />
-    </figure>
-    <div class="message__item">
-      <p class="message__date">
+  <mat-card class="message-component">
+    <figure class="avatar"></figure>
+    <div class="item">
+      <p class="item__date">
         {{ chat.createdAt.toDate() | date: "M/d h:mm a" }}
       </p>
-      <p class="message__text">
+      <p class="item__text">
         {{ chat.text }}
       </p>
     </div>
-  </div>
+  </mat-card>
 </div>
