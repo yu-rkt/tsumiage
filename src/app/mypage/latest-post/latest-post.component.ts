@@ -9,12 +9,6 @@ import { Message } from 'src/app/interfaces/message';
 export class LatestPostComponent implements OnInit {
   @Input() post: Message;
 
-  text = this.post.text;
-  maxLength = 20;
-  cutText = '';
-  if(this.text.length > this.maxLength) {
-    this.cutText = this.text.substr(0, this.maxLength) + '...';
-  }
   constructor() {}
 
   ngOnInit(): void {}
