@@ -22,7 +22,7 @@ export class ChatService {
   getAllChat(uid: number): Observable<Message[]> {
     return this.db
       .collection<Message>(`rooms/${this.uid}/messages`, (ref) =>
-        ref.where('uid', '==', uid).orderBy('createdAt', 'desc').limit(7)
+        ref.where('uid', '==', uid).orderBy('createdAt', 'desc').limit(20)
       )
       .valueChanges();
   }

@@ -1,8 +1,21 @@
-<form class="chat-form" [formGroup]="form" (ngSubmit)="submit()">
-  <mat-form-field>
-    <textarea matInput matTextareaAutosize formControlName="text"></textarea>
-  </mat-form-field>
-  <span>
-    <button type="submit">send</button>
-  </span>
+<form class="chat-form" [formGroup]="form" (ngSubmit)="sendMessage()">
+  <mat-card>
+    <mat-form-field appearance="outline">
+      <textarea
+        matInput
+        matTextareaAutosize
+        requried
+        formControlName="text"
+      ></textarea>
+      <button matSuffix mat-icon-button>
+        <mat-icon>send</mat-icon>
+      </button>
+      <mat-error *ngIf="textControl.hasError('required')"
+        >メッセージを入力してください</mat-error
+      >
+      <mat-error *ngIf="textControl.hasError('maxlength')"
+        >最大文字数を超えています</mat-error
+      >
+    </mat-form-field>
+  </mat-card>
 </form>
