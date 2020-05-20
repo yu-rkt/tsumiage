@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Message } from 'src/app/interfaces/message';
 
 @Component({
-  selector: 'app-speech',
-  templateUrl: './speech.component.html',
-  styleUrls: ['./speech.component.scss'],
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.scss'],
 })
-export class SpeechComponent implements OnInit {
+export class MessageComponent implements OnInit {
   @Input() chat: Message;
 
   constructor() {}
