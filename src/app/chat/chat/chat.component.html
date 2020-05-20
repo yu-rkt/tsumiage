@@ -1,12 +1,15 @@
 <app-message [chat]="chat" *ngFor="let chat of chats$ | async"></app-message>
 
+<!-- botTypeが存在すれば、botTYpeの中身に応じてテキストを切り分けている -->
 <ng-container *ngIf="botType" [ngSwitch]="botType">
   <p *ngSwitchCase="'todo'">今日やること教えてください</p>
   <p *ngSwitchCase="'done'">今日やったことを教えて</p>
   <p *ngSwitchCase="'log'">感想を教えてください</p>
   <input type="text" #input />
+  <!-- クリックされたらインプットの内容をメソッドに渡す -->
   <button (click)="submitToBot(input.value)">送信</button>
 </ng-container>
 
+<!-- 飛んできたボットタイプをbotTypeに代入している -->
 <app-chat-button (emitter)="botType = $event"></app-chat-button>
 <app-input></app-input>
