@@ -11,10 +11,4 @@ export class ChatButtonComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
-  addTodo() {
-    return this.emitter.emit('todo');
-  }
-  addDone() {}
-  addThought() {}
 }

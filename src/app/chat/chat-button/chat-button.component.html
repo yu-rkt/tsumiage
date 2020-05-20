@@ -1,11 +1,11 @@
 <div class="chat-button">
-  <button mat-stroked-button class="button" onclick="addTodo()">
+  <button mat-stroked-button class="button" (click)="emitter.emit('todo')">
     今日やること
   </button>
-  <button mat-stroked-button class="button" onclick="addDone()">
+  <button mat-stroked-button class="button" (click)="emitter.emit('done')">
     やったこと
   </button>
-  <button mat-stroked-button class="button" onclick="addThought()">
+  <button mat-stroked-button class="button" (click)="emitter.emit('log')">
     感想
   </button>
 </div>

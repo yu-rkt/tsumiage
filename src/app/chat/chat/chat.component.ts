@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
+  botType: string;
   chats$ = this.chatService
     .getAllChat(this.chatService.uid)
     .pipe(tap((data) => console.log(data)));
@@ -15,4 +16,9 @@ export class ChatComponent implements OnInit {
   constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {}
+
+  submitToBot(value: string) {
+    alert(value);
+    // TODO: 送信処理
+  }
 }
