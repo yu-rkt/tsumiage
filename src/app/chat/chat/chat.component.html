@@ -1,9 +1,7 @@
-<div class="container" *ngIf="chatType.todo">
-  <p>今日やることを書き出してみましょう！</p>
-  <app-message [chat]="chat" *ngFor="let chat of chats$ | async"></app-message>
-</div>
-<ng-template #other>
-  <p>やったこと</p>
-</ng-template>
-<app-chat-button></app-chat-button>
+<app-message
+  [chat]="chat"
+  *ngFor="let chat of chats$ | async"
+  #message
+></app-message>
+<app-chat-button (emitter)="message.type = $event"></app-chat-button>
 <app-input></app-input>

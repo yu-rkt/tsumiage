@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-chat-button',
@@ -6,11 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-button.component.scss'],
 })
 export class ChatButtonComponent implements OnInit {
+  @Output() emitter = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  addTodo() {}
+  addTodo() {
+    return this.emitter.emit('todo');
+  }
   addDone() {}
   addThought() {}
 }
