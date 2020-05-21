@@ -16,19 +16,24 @@ export class InputComponent implements OnInit {
     return this.form.get('text') as FormControl;
   }
 
-  botType: 'todo' | 'done' | 'log';
   uid = this.chatService.uid;
   createdAt = this.chatService.createdAt;
 
   constructor(private fb: FormBuilder, private chatService: ChatService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.chatService.botType);
+  }
+  formClear() {
+    this.form.reset();
+  }
   sendMessage() {
     this.chatService.postChat({
       text: this.form.value.text,
       uid: this.uid,
       createdAt: this.createdAt,
-      botType: this.botType,
+      botType: this.chatService.botType,
     });
+    this.formClear();
   }
 }

@@ -9,9 +9,8 @@ import { tap } from 'rxjs/operators';
 })
 export class ChatComponent implements OnInit {
   botType: 'todo' | 'done' | 'log';
-  chats$ = this.chatService
-    .getAllChat(this.chatService.uid, this.botType)
-    .pipe(tap((data) => console.log(data)));
+  chats$ = this.chatService.getAllChat(this.chatService.uid, this.botType);
+  // .pipe(tap((data) => console.log(data)));
 
   constructor(private chatService: ChatService) {}
 

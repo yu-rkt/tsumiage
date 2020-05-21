@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./chat-button.component.scss'],
 })
 export class ChatButtonComponent implements OnInit {
-  @Output() botType = new EventEmitter<string>();
+  @Output() botType = new EventEmitter();
 
   constructor() {}
 

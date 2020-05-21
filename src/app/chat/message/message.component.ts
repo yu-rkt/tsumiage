@@ -8,7 +8,6 @@ import { Message } from 'src/app/interfaces/message';
 })
 export class MessageComponent implements OnInit {
   @Input() chat: Message;
-  type: string;
 
   constructor() {}
 

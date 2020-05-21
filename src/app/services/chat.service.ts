@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Message } from '../interfaces/message';
 import { Observable } from 'rxjs';
 import { firestore } from 'firebase';
+import { ChatComponent } from '../chat/chat/chat.component';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,11 @@ export class ChatService {
   messageId = this.db.createId();
   uid = 1234;
   createdAt = firestore.Timestamp.now();
-  constructor(private db: AngularFirestore) {}
+  botType = this.chatComponwnt.botType;
+  constructor(
+    private db: AngularFirestore,
+    private chatComponwnt: ChatComponent
+  ) {}
 
   postChat(message: Message) {
     return this.db
