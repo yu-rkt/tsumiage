@@ -1,7 +1,13 @@
-<app-message
-  [chat]="chat"
-  *ngFor="let chat of chats$ | async"
-  #message
-></app-message>
-<app-chat-button (emitter)="message.type = $event"></app-chat-button>
+<ng-container class="container" *ngIf="botType" [ngSwitch]="botType">
+  <mat-card class="message-component">
+    <figure class="avatar"></figure>
+    <p *ngSwitchCase="'todo'">今日やることを教えてください！</p>
+    <p *ngSwitchCase="'done'">今日やったことを書き出してみましょう！</p>
+    <p *ngSwitchCase="'log'">今日の感想、学んだことをメモしましょう！</p>
+  </mat-card>
+</ng-container>
+
+<app-message [chat]="chat" *ngFor="let chat of chats$ | async"></app-message>
+
+<app-chat-button (botType)="botType = $event"></app-chat-button>
 <app-input></app-input>

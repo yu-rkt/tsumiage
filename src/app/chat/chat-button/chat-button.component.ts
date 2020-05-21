@@ -6,15 +6,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./chat-button.component.scss'],
 })
 export class ChatButtonComponent implements OnInit {
-  @Output() emitter = new EventEmitter();
+  @Output() botType = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
-
-  addTodo() {
-    return this.emitter.emit('todo');
-  }
-  addDone() {}
-  addThought() {}
 }
