@@ -19,24 +19,15 @@ export class ChatService {
       .set(message);
   }
 
-  getAllChat(uid: number): Observable<Message[]> {
+  getAllChat(uid: number, botType: string): Observable<Message[]> {
     return this.db
       .collection<Message>(`rooms/${this.uid}/messages`, (ref) =>
-        ref.where('uid', '==', uid).orderBy('createdAt', 'asc').limit(4)
+        ref
+          .where('uid', '==', uid)
+          .where('botType', '==', botType)
+          .orderBy('createdAt', 'asc')
+          .limit(4)
       )
       .valueChanges();
   }
-
-  // addTodo() {
-  //   const botMessage = '今日やることを書き出してみましょう！';
-
-  // }
-
-  // addDone() {
-
-  // }
-
-  // addThought() {
-
-  // }
 }

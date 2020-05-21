@@ -4,4 +4,5 @@ export interface Message {
   text: string;
   uid: number;
   createdAt: firestore.Timestamp;
+  botType: 'todo' | 'done' | 'log';
 }

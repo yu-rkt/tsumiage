@@ -8,7 +8,8 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class MypageComponent implements OnInit {
   uid = this.chatService.uid;
-  posts$ = this.chatService.getAllChat(this.uid);
+  botType: 'todo' | 'done' | 'log';
+  posts$ = this.chatService.getAllChat(this.uid, this.botType);
 
   constructor(private chatService: ChatService) {}
 

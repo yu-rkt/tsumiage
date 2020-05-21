@@ -1,4 +1,4 @@
-<ng-container class="container" *ngIf="botType" [ngSwitch]="botType">
+<ng-container *ngIf="botType" [ngSwitch]="botType">
   <mat-card class="message-component">
     <figure class="avatar"></figure>
     <p *ngSwitchCase="'todo'">今日やることを教えてください！</p>
@@ -10,4 +10,4 @@
 <app-message [chat]="chat" *ngFor="let chat of chats$ | async"></app-message>
 
 <app-chat-button (botType)="botType = $event"></app-chat-button>
-<app-input></app-input>
+<app-input (botType)="botType = $event"></app-input>

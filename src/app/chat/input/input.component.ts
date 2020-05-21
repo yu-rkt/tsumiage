@@ -15,6 +15,8 @@ export class InputComponent implements OnInit {
   get textControl() {
     return this.form.get('text') as FormControl;
   }
+
+  botType: 'todo' | 'done' | 'log';
   uid = this.chatService.uid;
   createdAt = this.chatService.createdAt;
 
@@ -26,6 +28,7 @@ export class InputComponent implements OnInit {
       text: this.form.value.text,
       uid: this.uid,
       createdAt: this.createdAt,
+      botType: this.botType,
     });
   }
 }
